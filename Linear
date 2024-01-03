@@ -1,0 +1,34 @@
+import numpy as np
+ from sklearn import datasets
+ from sklearn.model_selection import train_test_split
+ import matplotlib.pyplot as plt
+ def fit(X, y):
+ num_samples, num_features = X.shape
+ # X shape [N, f] where N is the␣
+ ↪samples and f is features here 2
+ weights = np.zeros(num_features) # W shape [f, 1]
+ bias = 0
+ n_iters=1000 #number of iterations
+ lr=0.01 #learning rate
+ for i in range(n_iters):
+ y_pred = np.dot(X, weights) + bias
+ dw = (1 / num_samples) * np.dot(X.T, y_pred- y) #derivative of Loss␣
+ ↪with respect to weights w
+ return weights,bias
+ def predict(X):
+ return np.dot(X,weights) + bias
+ db = (1 / num_samples) * np.sum(y_pred- y) #derivative of loss with␣
+ ↪respect to bias
+ weights = weights- lr * dw #weights update
+ bias = bias- lr * db
+ X, y = datasets.make_regression(n_samples=500, n_features=1, random_state=4)␣
+ ↪#to create a random dataset of two features and one target
+ x_train,x_test,y_train,y_test=train_test_split(X,y)
+ 1
+weights,bias=fit(x_train,y_train)
+ print('weights are:\n',weights,'\n\nBias is :\n',bias)
+ predictions=predict(x_test)
+ loss=np.mean(np.abs(predictions-y_test)) #mean absolute error
+ print('\nMAE is ',loss)
+ plt.scatter(x_test,y_test,color='m')
+ plt.plot(x_test,predictions)
