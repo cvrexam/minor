@@ -1,0 +1,40 @@
+ #Sigmoid Function
+ import math as m
+ import matplotlib.pyplot as plt
+ import numpy as np
+ %matplotlib inline
+ y=[]
+ x=np.arange(-10,10,0.2)
+ for i in x:
+  y.append(1/(1+m.exp(-i)))
+ plt.figure(figsize=(8,3))
+ plt.plot(x,y)
+ plt.grid()
+
+ ## Plotting the log functions
+ import math as m
+ import matplotlib.pyplot as plt
+ import numpy as np
+ %matplotlib inline
+ y=[]
+ x=np.arange(0.01,1,0.01)
+ for i in x:
+  y.append(-m.log(i))
+ plt.figure(figsize=(8,5))
+ plt.plot(x,y)
+ plt.grid()
+ plt.xlabel(r'$h_{\theta}(x)$', fontsize=20)
+
+  ## Plotting the log functions
+ import math as m
+ import matplotlib.pyplot as plt
+ import numpy as np
+ %matplotlib inline
+ y=[]
+ x=np.arange(0,1,0.01)
+ for i in x:
+  y.append(-m.log(1-i))
+ plt.figure(figsize=(8,5))
+ plt.plot(x,y)
+ plt.grid()
+ plt.xlabel(r'$h_{\theta}(x)$', fontsize=20)
